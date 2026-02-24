@@ -1,4 +1,6 @@
 import { ArrowRight, Fingerprint } from 'lucide-react';
+import CloudinaryImage from './CloudinaryImage';
+import { IMAGES } from '../lib/images';
 
 export default function HolisticDevelopment() {
     return (
@@ -25,24 +27,16 @@ export default function HolisticDevelopment() {
                     </a>
                 </div>
 
-                {/* Right: Image with glassmorphism overlay */}
+                {/* Right: Cloudinary Image with glassmorphism overlay */}
                 <div className="relative rounded-3xl overflow-hidden shadow-xl h-80 md:h-96 bg-teal-100">
-                    {/* Background image placeholder — gradient that matches school classroom feel */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-teal-200 via-teal-100 to-cyan-50 flex items-center justify-center">
-                        {/* Classroom silhouette elements */}
-                        <div className="flex flex-col items-center gap-4 opacity-40">
-                            <div className="w-32 h-2 rounded bg-teal-400" />
-                            <div className="flex gap-3">
-                                {[1, 2, 3].map(i => (
-                                    <div key={i} className="flex flex-col items-center gap-2">
-                                        <div className="w-10 h-10 rounded-full bg-teal-400" />
-                                        <div className="w-10 h-12 rounded-lg bg-teal-300" />
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="w-48 h-1 rounded bg-teal-400 mt-4" />
-                        </div>
-                    </div>
+                    {/* Cloudinary image fills the entire card */}
+                    <CloudinaryImage
+                        publicId={IMAGES.holistic.classroom}
+                        alt="Classroom at Pragnya Karuna Vidyalaya"
+                        width={800}
+                        height={600}
+                        className="w-full h-full object-cover"
+                    />
 
                     {/* Glassmorphism overlay card at bottom */}
                     <div className="absolute bottom-0 left-0 right-0 m-4 glass rounded-2xl p-4 bg-white/70 backdrop-blur-md border border-white/50 shadow-lg">
@@ -52,7 +46,7 @@ export default function HolisticDevelopment() {
                             </div>
                             <div>
                                 <p className="font-semibold text-sm text-gray-800 font-sans mb-1">Biometric Attendance System</p>
-                                <p className="text-gray-500 text-xs font-sans leading-snug">
+                                <p className="text-gray-900 text-xs font-sans leading-snug">
                                     Ensuring student safety with integrated state-of-the-art technology integration.
                                 </p>
                             </div>
