@@ -173,4 +173,4 @@ const { t } = useLanguage();
 
 © 2026 Pragnya Karuna Mook Badhir Vidyalaya. All rights reserved.
 
-*Built with ❤️ for the students and staff of PKMV, Ulhasnagar.*
+*Built by Aniruddha P for the students and staff of PKMV, Ulhasnagar.*
