@@ -4,6 +4,7 @@ import {
     Cpu, Wrench, Leaf, Activity, Flame, BadgeCheck, Bus,
     Tag, Star, Fingerprint, Stethoscope, ArrowRight
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const cardVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -37,19 +38,20 @@ const classrooms = [
 ];
 
 export default function BentoGrid() {
+    const { t } = useLanguage();
     return (
         <section id="programs" className="bg-green-50 py-20 px-6">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-12">
                     <p className="text-teal-700 text-xs font-semibold font-sans uppercase tracking-widest mb-2">
-                        Campus Life &amp; Features
+                        {t('home', 'sectionLabel')}
                     </p>
                     <h2 className="font-serif text-4xl font-black text-gray-800 mb-3">
-                        Nurturing Growth Every Day
+                        {t('home', 'sectionTitle')}
                     </h2>
                     <p className="text-gray-500 font-sans text-base max-w-lg mx-auto leading-relaxed">
-                        Our dynamic curriculum and activities are designed to foster independence, creativity, and joy in learning.
+                        {t('home', 'sectionDesc')}
                     </p>
                 </div>
 
@@ -78,9 +80,9 @@ export default function BentoGrid() {
                                 </span>
                             </div>
                             <div>
-                                <h3 className="font-serif font-black text-xl text-gray-800 mb-1">Specialized Classrooms</h3>
+                                <h3 className="font-serif font-black text-xl text-gray-800 mb-1">{t('home.bento', 'classrooms')}</h3>
                                 <p className="text-gray-500 text-sm font-sans leading-snug">
-                                    Tailored environments designed for optimal acoustic learning and personalised attention.
+                                    {t('home.bento', 'classroomsDesc')}
                                 </p>
                             </div>
                             <div className="flex flex-col gap-3 mt-2">
@@ -92,7 +94,7 @@ export default function BentoGrid() {
                                 ))}
                             </div>
                             <div className="mt-auto flex items-center gap-1.5 text-teal-700 text-sm font-semibold font-sans group-hover:gap-2.5 transition-all duration-200">
-                                <span>Explore our therapies</span>
+                                <span>{t('home.bento', 'classroomsLink')}</span>
                                 <ArrowRight size={14} />
                             </div>
                         </motion.div>
@@ -122,8 +124,8 @@ export default function BentoGrid() {
                                 </span>
                             </div>
                             <div>
-                                <h3 className="font-serif font-bold text-lg text-gray-800 mb-1">Skill Development</h3>
-                                <p className="text-gray-400 text-xs font-sans">Vocational training for a self-reliant future.</p>
+                                <h3 className="font-serif font-bold text-lg text-gray-800 mb-1">{t('home.bento', 'skills')}</h3>
+                                <p className="text-gray-400 text-xs font-sans">{t('home.bento', 'skillsDesc')}</p>
                             </div>
                             <ul className="flex flex-col gap-1.5 mt-1">
                                 {skills.map((s, i) => (
@@ -134,7 +136,7 @@ export default function BentoGrid() {
                                 ))}
                             </ul>
                             <div className="mt-auto flex items-center gap-1.5 text-orange-500 text-sm font-semibold font-sans group-hover:gap-2.5 transition-all duration-200">
-                                <span>Explore student life</span>
+                                <span>{t('home.bento', 'skillsLink')}</span>
                                 <ArrowRight size={14} />
                             </div>
                         </motion.div>
@@ -163,9 +165,9 @@ export default function BentoGrid() {
                                 </span>
                             </div>
                             <div>
-                                <h3 className="font-serif font-black text-xl text-white mb-1">Celebrating Traditions</h3>
+                                <h3 className="font-serif font-black text-xl text-white mb-1">{t('home.bento', 'traditions')}</h3>
                                 <p className="text-teal-200 text-sm font-sans leading-snug">
-                                    We believe in cultural integration. Our students actively participate in festivities, bringing vibrant energy to every occasion.
+                                    {t('home.bento', 'traditionsDesc')}
                                 </p>
                             </div>
                             {/* 2x2 inner festival grid */}
@@ -208,16 +210,16 @@ export default function BentoGrid() {
                                 </span>
                             </div>
                             <div>
-                                <h3 className="font-serif font-bold text-lg text-gray-800 mb-1">Project-Based Learning</h3>
-                                <p className="text-gray-500 text-xs font-sans">Connecting students with nature through plantation drives.</p>
+                                <h3 className="font-serif font-bold text-lg text-gray-800 mb-1">{t('home.bento', 'eco')}</h3>
+                                <p className="text-gray-500 text-xs font-sans">{t('home.bento', 'ecoDesc')}</p>
                             </div>
                             <div className="flex gap-2 flex-wrap mt-1">
-                                {['Mango', 'Coconut', 'Native'].map((t) => (
-                                    <span key={t} className="text-xs bg-green-100 text-teal-700 font-semibold px-3 py-1 rounded-full">{t}</span>
+                                {['Mango', 'Coconut', 'Native'].map((tag) => (
+                                    <span key={tag} className="text-xs bg-green-100 text-teal-700 font-semibold px-3 py-1 rounded-full">{tag}</span>
                                 ))}
                             </div>
                             <div className="mt-auto flex items-center gap-1.5 text-teal-700 text-sm font-semibold font-sans group-hover:gap-2.5 transition-all duration-200">
-                                <span>Explore projects</span>
+                                <span>{t('home.bento', 'ecoLink')}</span>
                                 <ArrowRight size={14} />
                             </div>
                         </motion.div>
@@ -244,9 +246,9 @@ export default function BentoGrid() {
                                 <span className="bg-orange-500/20 text-orange-400 text-xs font-semibold px-2 py-0.5 rounded-full font-sans">🏆 Champions</span>
                             </div>
                             <div>
-                                <h3 className="font-serif font-black text-lg text-white mb-1">State-Level Sports</h3>
+                                <h3 className="font-serif font-black text-lg text-white mb-1">{t('home.bento', 'sports')}</h3>
                                 <p className="text-slate-400 text-sm font-sans leading-snug">
-                                    Our athletes excel in state competitions, proving that determination knows no bounds.
+                                    {t('home.bento', 'sportsDesc')}
                                 </p>
                             </div>
                             <div className="flex flex-wrap gap-2 mt-1">
@@ -255,7 +257,7 @@ export default function BentoGrid() {
                                 ))}
                             </div>
                             <div className="mt-auto flex items-center gap-1.5 text-slate-300 text-sm font-semibold font-sans group-hover:gap-2.5 transition-all duration-200">
-                                <span>Explore sports</span>
+                                <span>{t('home.bento', 'sportsLink')}</span>
                                 <ArrowRight size={14} />
                             </div>
                         </motion.div>
@@ -275,7 +277,7 @@ export default function BentoGrid() {
                             <Activity size={18} className="text-blue-600" />
                         </div>
                         <div>
-                            <h3 className="font-serif font-bold text-lg text-gray-800 mb-1">Health &amp; Tech</h3>
+                            <h3 className="font-serif font-bold text-lg text-gray-800 mb-1">{t('home.bento', 'health')}</h3>
                         </div>
                         <ul className="flex flex-col gap-2">
                             <li className="flex items-center gap-2 text-gray-600 text-sm font-sans">
@@ -310,13 +312,13 @@ export default function BentoGrid() {
                                 </span>
                             </div>
                             <div>
-                                <h3 className="font-serif font-bold text-lg text-gray-800 mb-1">Educational Excursions</h3>
+                                <h3 className="font-serif font-bold text-lg text-gray-800 mb-1">{t('home.bento', 'excursions')}</h3>
                                 <p className="text-gray-500 text-sm font-sans leading-snug">
-                                    Broadening horizons beyond the classroom with visits to Muktangan Village and various historical sites.
+                                    {t('home.bento', 'excursionsDesc')}
                                 </p>
                             </div>
                             <div className="mt-auto flex items-center gap-1.5 text-yellow-600 text-sm font-semibold font-sans group-hover:gap-2.5 transition-all duration-200">
-                                <span>Explore excursions</span>
+                                <span>{t('home.bento', 'excursionsLink')}</span>
                                 <ArrowRight size={14} />
                             </div>
                         </motion.div>

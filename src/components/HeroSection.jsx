@@ -2,8 +2,10 @@ import { motion } from 'framer-motion';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import CloudinaryImage from './CloudinaryImage';
 import { IMAGES } from '../lib/images';
+import { useLanguage } from '../context/LanguageContext';
 
 export default function HeroSection() {
+    const { t } = useLanguage();
     return (
         <section className="relative bg-teal-700 flex items-center overflow-hidden pt-16">
             {/* Background decorative circles */}
@@ -22,21 +24,20 @@ export default function HeroSection() {
                     <div className="flex items-center gap-2 mb-4">
                         <Sparkles size={16} className="text-orange-400" />
                         <span className="text-teal-200 text-sm font-medium font-sans tracking-wide uppercase">
-                            Specialized Education
+                            {t('home', 'badge')}
                         </span>
                     </div>
                     <h1 className="font-serif text-4xl md:text-5xl font-black leading-tight mb-5 text-white">
-                        Empowering Voices<br />Since 1981
+                        {t('home', 'heroTitle')}
                     </h1>
                     <p className="text-teal-100 text-base leading-relaxed font-sans mb-8 max-w-md">
-                        Dedicated to the holistic development and bright future of hearing and
-                        speech impaired students through specialized education and care.
+                        {t('home', 'heroSub')}
                     </p>
-                    <button 
+                    <button
                         onClick={() => document.getElementById('programs')?.scrollIntoView({ behavior: 'smooth' })}
                         className="group inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-400 text-white font-semibold font-sans px-6 py-3 rounded-full shadow-lg hover:shadow-orange-500/30 transition-all duration-300"
                     >
-                        Discover Our Programs
+                        {t('home', 'ctaButton')}
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-200" />
                     </button>
                 </motion.div>
